@@ -17,6 +17,7 @@
       --world-news: #4a90d9;
       --cigars: #8b4513;
       --tech: #00d4aa;
+      --music: #9b59b6;
       --bg: #0a0a0a;
       --surface: #141414;
       --surface-hover: #1a1a1a;
@@ -110,6 +111,7 @@
     .filter-btn[data-team="World News"].active { background: var(--world-news); border-color: var(--world-news); }
     .filter-btn[data-team="Cigars"].active { background: var(--cigars); border-color: var(--cigars); }
     .filter-btn[data-team="Tech"].active { background: var(--tech); border-color: var(--tech); color: var(--bg); }
+    .filter-btn[data-team="Music"].active { background: var(--music); border-color: var(--music); }
 
     main {
       max-width: 1400px;
@@ -166,6 +168,7 @@
     .category[data-team="World News"] .category-header { border-color: var(--world-news); }
     .category[data-team="Cigars"] .category-header { border-color: var(--cigars); }
     .category[data-team="Tech"] .category-header { border-color: var(--tech); }
+    .category[data-team="Music"] .category-header { border-color: var(--music); }
 
     .team-icon {
       font-size: 1.5rem;
@@ -302,6 +305,7 @@
         <button class="filter-btn" data-team="World News">World</button>
         <button class="filter-btn" data-team="Cigars">Cigars</button>
         <button class="filter-btn" data-team="Tech">Tech</button>
+        <button class="filter-btn" data-team="Music">Music</button>
       </div>
     </div>
   </header>
@@ -322,7 +326,8 @@
       UFC: '🥊',
       'World News': '🌍',
       Cigars: '🚬',
-      Tech: '💻'
+      Tech: '💻',
+      Music: '🎸'
     };
 
     function formatDate(dateStr) {

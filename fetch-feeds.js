@@ -46,6 +46,12 @@ const feeds = {
     { name: 'Ars Technica', url: 'https://feeds.arstechnica.com/arstechnica/index' },
     { name: 'The Verge', url: 'https://www.theverge.com/rss/index.xml' },
     { name: 'Hacker News', url: 'https://hnrss.org/frontpage' }
+  ],
+  Music: [
+    { name: 'Rolling Stone', url: 'https://www.rollingstone.com/music/feed/' },
+    { name: 'Pitchfork', url: 'https://pitchfork.com/feed/feed-news/rss' },
+    { name: 'MetalSucks', url: 'https://www.metalsucks.net/feed/' },
+    { name: 'Lambgoat', url: 'https://lambgoat.com/feed/' }
   ]
 };
 
