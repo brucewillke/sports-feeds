@@ -26,6 +26,16 @@ const feeds = {
   ],
   Rangers: [
     { name: 'Forever Blueshirts', url: 'https://foreverblueshirts.com/feed' }
+  ],
+  UFC: [
+    { name: 'MMA Fighting', url: 'https://www.mmafighting.com/rss/current.xml' },
+    { name: 'MMA Junkie', url: 'https://mmajunkie.usatoday.com/feed' },
+    { name: 'Bloody Elbow', url: 'https://www.bloodyelbow.com/rss/current.xml' }
+  ],
+  'World News': [
+    { name: 'BBC World', url: 'https://feeds.bbci.co.uk/news/world/rss.xml' },
+    { name: 'Reuters World', url: 'https://www.reutersagency.com/feed/?taxonomy=best-regions&post_type=best' },
+    { name: 'AP News', url: 'https://apnews.com/world-news.rss' }
   ]
 };
 

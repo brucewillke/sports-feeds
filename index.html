@@ -13,6 +13,8 @@
       --giants: #0b2265;
       --knicks: #f58426;
       --rangers: #0038a8;
+      --ufc: #d20a0a;
+      --world-news: #4a90d9;
       --bg: #0a0a0a;
       --surface: #141414;
       --surface-hover: #1a1a1a;
@@ -102,6 +104,8 @@
     .filter-btn[data-team="Giants"].active { background: var(--giants); border-color: var(--giants); }
     .filter-btn[data-team="Knicks"].active { background: var(--knicks); border-color: var(--knicks); }
     .filter-btn[data-team="Rangers"].active { background: var(--rangers); border-color: var(--rangers); }
+    .filter-btn[data-team="UFC"].active { background: var(--ufc); border-color: var(--ufc); }
+    .filter-btn[data-team="World News"].active { background: var(--world-news); border-color: var(--world-news); }
 
     main {
       max-width: 1400px;
@@ -154,6 +158,8 @@
     .category[data-team="Giants"] .category-header { border-color: var(--giants); }
     .category[data-team="Knicks"] .category-header { border-color: var(--knicks); }
     .category[data-team="Rangers"] .category-header { border-color: var(--rangers); }
+    .category[data-team="UFC"] .category-header { border-color: var(--ufc); }
+    .category[data-team="World News"] .category-header { border-color: var(--world-news); }
 
     .team-icon {
       font-size: 1.5rem;
@@ -286,6 +292,8 @@
         <button class="filter-btn" data-team="Giants">Giants</button>
         <button class="filter-btn" data-team="Knicks">Knicks</button>
         <button class="filter-btn" data-team="Rangers">Rangers</button>
+        <button class="filter-btn" data-team="UFC">UFC</button>
+        <button class="filter-btn" data-team="World News">World</button>
       </div>
     </div>
   </header>
@@ -302,7 +310,9 @@
       Yankees: '⚾',
       Giants: '🏈',
       Knicks: '🏀',
-      Rangers: '🏒'
+      Rangers: '🏒',
+      UFC: '🥊',
+      'World News': '🌍'
     };
 
     function formatDate(dateStr) {
