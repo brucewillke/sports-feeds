@@ -7,6 +7,9 @@ on:
   # Optional: allow manual runs from the Actions tab
   workflow_dispatch: {}
 
+permissions:
+  contents: write   # allow this workflow to push to the repo
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,6 +18,6 @@ jobs:
         uses: llun/feeds@3.0.0
         with:
           storageType: files
-          opmlFile: feeds.opml     # our file name
+          opmlFile: feeds.opml     # our OPML file
           branch: contents         # output branch for the static site
-          customDomain: brucewillke.com  # optional if you have a custom domain
+          token: ${{ secrets.GITHUB_TOKEN }}
