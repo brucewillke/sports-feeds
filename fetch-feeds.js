@@ -3,11 +3,13 @@ const fs = require('fs');
 const path = require('path');
 
 const parser = new Parser({
-  timeout: 10000,
+  timeout: 8000,
   headers: {
     'User-Agent': 'Mozilla/5.0 (compatible; Sports-Feeds-Bot/1.0)'
   }
 });
+
+const FETCH_TIMEOUT = 10000; // 10 second hard timeout per feed
 
 const feeds = {
   Yankees: [
@@ -27,10 +29,25 @@ const feeds = {
   ]
 };
 
+function withTimeout(promise, ms, feedName) {
+  return Promise.race([
+    promise,
+    new Promise((_, reject) =>
+      setTimeout(() => reject(new Error(`Timeout after ${ms}ms`)), ms)
+    )
+  ]);
+}
+
 async function fetchFeed(feedInfo) {
+  const start = Date.now();
   try {
-    console.log(`Fetching: ${feedInfo.name}`);
-    const feed = await parser.parseURL(feedInfo.url);
+    console.log(`Fetching: ${feedInfo.name}...`);
+    const feed = await withTimeout(
+      parser.parseURL(feedInfo.url),
+      FETCH_TIMEOUT,
+      feedInfo.name
+    );
+    console.log(`✓ ${feedInfo.name} (${Date.now() - start}ms)`);
 
     const items = feed.items.slice(0, 15).map(item => ({
       title: item.title || 'No title',
@@ -47,7 +64,7 @@ async function fetchFeed(feedInfo) {
       lastFetched: new Date().toISOString()
     };
   } catch (error) {
-    console.error(`Error fetching ${feedInfo.name}: ${error.message}`);
+    console.error(`✗ ${feedInfo.name} (${Date.now() - start}ms): ${error.message}`);
     return {
       name: feedInfo.name,
       url: feedInfo.url,
@@ -70,18 +87,21 @@ async function main() {
     categories: {}
   };
 
-  for (const [category, feedList] of Object.entries(feeds)) {
-    console.log(`\nProcessing category: ${category}`);
-    const categoryFeeds = [];
+  // Flatten all feeds with their category
+  const allFeeds = Object.entries(feeds).flatMap(([category, feedList]) =>
+    feedList.map(feed => ({ ...feed, category }))
+  );
 
-    for (const feedInfo of feedList) {
-      const feedData = await fetchFeed(feedInfo);
-      categoryFeeds.push(feedData);
-      // Small delay between requests
-      await new Promise(r => setTimeout(r, 1000));
+  console.log(`Fetching ${allFeeds.length} feeds in parallel...\n`);
+  const results = await Promise.all(allFeeds.map(fetchFeed));
+
+  // Group results back by category
+  for (const result of results) {
+    const feed = allFeeds.find(f => f.name === result.name);
+    if (!allData.categories[feed.category]) {
+      allData.categories[feed.category] = [];
     }
-
-    allData.categories[category] = categoryFeeds;
+    allData.categories[feed.category].push(result);
   }
 
   fs.writeFileSync(
