@@ -38,12 +38,6 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: Verify feeds were generated
-        run: |
-          echo "Contents of data/feeds.json:"
-          cat data/feeds.json | head -50
-          echo "..."
-
       - name: Prepare site
         run: |
           mkdir _site
