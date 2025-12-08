@@ -2,7 +2,7 @@ name: Fetch Feeds & Deploy
 
 on:
   schedule:
-    - cron: '0 */4 * * *'  # Every 4 hours
+    - cron: '0 */8 * * *'  # Every 4 hours
   workflow_dispatch:
   push:
     branches:
