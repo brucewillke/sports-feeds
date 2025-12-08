@@ -15,6 +15,8 @@
       --rangers: #0038a8;
       --ufc: #d20a0a;
       --world-news: #4a90d9;
+      --cigars: #8b4513;
+      --tech: #00d4aa;
       --bg: #0a0a0a;
       --surface: #141414;
       --surface-hover: #1a1a1a;
@@ -106,6 +108,8 @@
     .filter-btn[data-team="Rangers"].active { background: var(--rangers); border-color: var(--rangers); }
     .filter-btn[data-team="UFC"].active { background: var(--ufc); border-color: var(--ufc); }
     .filter-btn[data-team="World News"].active { background: var(--world-news); border-color: var(--world-news); }
+    .filter-btn[data-team="Cigars"].active { background: var(--cigars); border-color: var(--cigars); }
+    .filter-btn[data-team="Tech"].active { background: var(--tech); border-color: var(--tech); color: var(--bg); }
 
     main {
       max-width: 1400px;
@@ -160,6 +164,8 @@
     .category[data-team="Rangers"] .category-header { border-color: var(--rangers); }
     .category[data-team="UFC"] .category-header { border-color: var(--ufc); }
     .category[data-team="World News"] .category-header { border-color: var(--world-news); }
+    .category[data-team="Cigars"] .category-header { border-color: var(--cigars); }
+    .category[data-team="Tech"] .category-header { border-color: var(--tech); }
 
     .team-icon {
       font-size: 1.5rem;
@@ -294,6 +300,8 @@
         <button class="filter-btn" data-team="Rangers">Rangers</button>
         <button class="filter-btn" data-team="UFC">UFC</button>
         <button class="filter-btn" data-team="World News">World</button>
+        <button class="filter-btn" data-team="Cigars">Cigars</button>
+        <button class="filter-btn" data-team="Tech">Tech</button>
       </div>
     </div>
   </header>
@@ -312,7 +320,9 @@
       Knicks: '🏀',
       Rangers: '🏒',
       UFC: '🥊',
-      'World News': '🌍'
+      'World News': '🌍',
+      Cigars: '🚬',
+      Tech: '💻'
     };
 
     function formatDate(dateStr) {
