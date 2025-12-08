@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="2.0">
+  <head>
+    <title>Sports Feeds</title>
+  </head>
+  <body>
+    <outline text="Sports" title="Sports">
+
+      <!-- ESPN - general sports headlines -->
+      <!-- ESPN explicitly allows RSS for aggregators as long as you link back and don’t wrap their content with your own ads. -->
+      <!-- http://sports.espn.go.com/espn/rss/news -->
+      <outline
+        text="ESPN Sports"
+        type="rss"
+        xmlUrl="http://sports.espn.go.com/espn/rss/news"
+        htmlUrl="https://www.espn.com" />
+
+      <!-- Yahoo Sports Top Stories -->
+      <!-- https://sports.yahoo.com/top/rss.xml -->
+      <outline
+        text="Yahoo Sports"
+        type="rss"
+        xmlUrl="https://sports.yahoo.com/top/rss.xml"
+        htmlUrl="https://sports.yahoo.com" />
+
+      <!-- LA Times Sports -->
+      <!-- http://www.latimes.com/sports/rss2.0.xml -->
+      <outline
+        text="LA Times Sports"
+        type="rss"
+        xmlUrl="http://www.latimes.com/sports/rss2.0.xml"
+        htmlUrl="https://www.latimes.com/sports" />
+
+      <!-- The Guardian - U.S. Sports -->
+      <!-- http://www.theguardian.com/sport/us-sport/rss -->
+      <outline
+        text="The Guardian US Sport"
+        type="rss"
+        xmlUrl="http://www.theguardian.com/sport/us-sport/rss"
+        htmlUrl="https://www.theguardian.com/sport/us-sport" />
+
+    </outline>
+  </body>
+</opml>
