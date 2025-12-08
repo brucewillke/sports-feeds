@@ -13,6 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Generate Feeds
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
       - name: Run Action
         uses: llun/feeds@3.0.0
         with:
