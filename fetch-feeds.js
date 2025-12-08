@@ -23,7 +23,6 @@ const feeds = {
     { name: 'NY Post Knicks', url: 'https://nypost.com/tag/new-york-knicks/feed/' }
   ],
   Rangers: [
-    { name: 'Blueshirt Banter', url: 'https://www.blueshirtbanter.com/rss/current.xml' },
     { name: 'Forever Blueshirts', url: 'https://foreverblueshirts.com/feed' }
   ]
 };
