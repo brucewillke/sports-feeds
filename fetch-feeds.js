@@ -29,8 +29,8 @@ const feeds = {
   ],
   UFC: [
     { name: 'MMA Fighting', url: 'https://www.mmafighting.com/rss/current.xml' },
-    { name: 'MMA Junkie', url: 'https://mmajunkie.usatoday.com/feed' },
-    { name: 'Bloody Elbow', url: 'https://www.bloodyelbow.com/rss/current.xml' }
+    { name: 'MMA Mania', url: 'https://www.mmamania.com/rss/current.xml' },
+    { name: 'UFC News', url: 'https://www.ufc.com/rss/news' }
   ],
   'World News': [
     { name: 'BBC World', url: 'https://feeds.bbci.co.uk/news/world/rss.xml' },
@@ -38,9 +38,9 @@ const feeds = {
     { name: 'AP News', url: 'https://apnews.com/world-news.rss' }
   ],
   Cigars: [
-    { name: 'Cigar Aficionado', url: 'https://www.cigaraficionado.com/feed' },
     { name: 'Halfwheel', url: 'https://halfwheel.com/feed' },
-    { name: 'Cigar Coop', url: 'https://cigar-coop.com/feed' }
+    { name: 'Famous Smoke Blog', url: 'https://www.famous-smoke.com/cigaradvisor/feed' },
+    { name: 'Blind Man Puff', url: 'https://blindmanspuff.com/feed/' }
   ],
   Tech: [
     { name: 'Ars Technica', url: 'https://feeds.arstechnica.com/arstechnica/index' },
