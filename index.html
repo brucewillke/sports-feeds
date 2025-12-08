@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NY Sports Feeds</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --yankees: #003087;
+      --giants: #0b2265;
+      --knicks: #f58426;
+      --rangers: #0038a8;
+      --bg: #0a0a0a;
+      --surface: #141414;
+      --surface-hover: #1a1a1a;
+      --border: #2a2a2a;
+      --text: #e5e5e5;
+      --text-muted: #888;
+      --accent: #fff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Source Sans 3', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    header {
+      background: linear-gradient(135deg, #111 0%, #1a1a1a 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, var(--yankees), var(--knicks));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .team-filters {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 0.5rem 1rem;
+      border: 2px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--text-muted);
+      color: var(--text);
+    }
+
+    .filter-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--bg);
+    }
+
+    .filter-btn[data-team="Yankees"].active { background: var(--yankees); border-color: var(--yankees); }
+    .filter-btn[data-team="Giants"].active { background: var(--giants); border-color: var(--giants); }
+    .filter-btn[data-team="Knicks"].active { background: var(--knicks); border-color: var(--knicks); }
+    .filter-btn[data-team="Rangers"].active { background: var(--rangers); border-color: var(--rangers); }
+
+    main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--text-muted);
+    }
+
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid var(--border);
+      border-top-color: var(--knicks);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1rem;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .category {
+      margin-bottom: 3rem;
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 3px solid var(--border);
+    }
+
+    .category-header h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .category[data-team="Yankees"] .category-header { border-color: var(--yankees); }
+    .category[data-team="Giants"] .category-header { border-color: var(--giants); }
+    .category[data-team="Knicks"] .category-header { border-color: var(--knicks); }
+    .category[data-team="Rangers"] .category-header { border-color: var(--rangers); }
+
+    .team-icon {
+      font-size: 1.5rem;
+    }
+
+    .feeds-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feed-source {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 1.25rem;
+    }
+
+    .feed-source-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .feed-source-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .feed-source-link {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .feed-source-link:hover {
+      color: var(--accent);
+    }
+
+    .feed-items {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .feed-item {
+      display: block;
+      padding: 0.75rem;
+      background: var(--bg);
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.15s ease;
+      border-left: 3px solid transparent;
+    }
+
+    .feed-item:hover {
+      background: var(--surface-hover);
+      border-left-color: var(--knicks);
+      transform: translateX(4px);
+    }
+
+    .feed-item-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+      line-height: 1.4;
+    }
+
+    .feed-item-date {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .last-updated {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+
+    .error-message {
+      background: #2a1a1a;
+      border: 1px solid #4a2a2a;
+      color: #f88;
+      padding: 1rem;
+      margin: 1rem 0;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 1rem;
+      }
+
+      h1 {
+        font-size: 1.4rem;
+      }
+
+      main {
+        padding: 1rem;
+      }
+
+      .feeds-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .filter-btn {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>NY Sports Feeds</h1>
+      <div class="team-filters">
+        <button class="filter-btn active" data-team="all">All</button>
+        <button class="filter-btn" data-team="Yankees">Yankees</button>
+        <button class="filter-btn" data-team="Giants">Giants</button>
+        <button class="filter-btn" data-team="Knicks">Knicks</button>
+        <button class="filter-btn" data-team="Rangers">Rangers</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="content">
+    <div class="loading">
+      <div class="loading-spinner"></div>
+      <p>Loading feeds...</p>
+    </div>
+  </main>
+
+  <script>
+    const teamIcons = {
+      Yankees: '⚾',
+      Giants: '🏈',
+      Knicks: '🏀',
+      Rangers: '🏒'
+    };
+
+    function formatDate(dateStr) {
+      const date = new Date(dateStr);
+      const now = new Date();
+      const diffMs = now - date;
+      const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+      const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+
+      if (diffHours < 1) return 'Just now';
+      if (diffHours < 24) return `${diffHours}h ago`;
+      if (diffDays < 7) return `${diffDays}d ago`;
+
+      return date.toLocaleDateString('en-US', {
+        month: 'short',
+        day: 'numeric'
+      });
+    }
+
+    function renderFeeds(data, filter = 'all') {
+      const content = document.getElementById('content');
+
+      if (!data || !data.categories) {
+        content.innerHTML = '<div class="error-message">Failed to load feeds. Please try again later.</div>';
+        return;
+      }
+
+      let html = '';
+
+      for (const [category, feeds] of Object.entries(data.categories)) {
+        if (filter !== 'all' && filter !== category) continue;
+
+        html += `
+          <section class="category" data-team="${category}">
+            <div class="category-header">
+              <span class="team-icon">${teamIcons[category] || '📰'}</span>
+              <h2>${category}</h2>
+            </div>
+            <div class="feeds-grid">
+        `;
+
+        for (const feed of feeds) {
+          html += `
+            <div class="feed-source">
+              <div class="feed-source-header">
+                <span class="feed-source-name">${feed.name}</span>
+                <a href="${feed.siteUrl}" target="_blank" rel="noopener" class="feed-source-link">Visit Site →</a>
+              </div>
+              <div class="feed-items">
+          `;
+
+          if (feed.error) {
+            html += `<div class="error-message">Unable to load: ${feed.error}</div>`;
+          } else if (feed.items.length === 0) {
+            html += `<p style="color: var(--text-muted); font-size: 0.9rem;">No recent articles</p>`;
+          } else {
+            for (const item of feed.items.slice(0, 5)) {
+              html += `
+                <a href="${item.link}" target="_blank" rel="noopener" class="feed-item">
+                  <div class="feed-item-title">${item.title}</div>
+                  <div class="feed-item-date">${formatDate(item.pubDate)}</div>
+                </a>
+              `;
+            }
+          }
+
+          html += `
+              </div>
+            </div>
+          `;
+        }
+
+        html += `
+            </div>
+          </section>
+        `;
+      }
+
+      html += `
+        <div class="last-updated">
+          Last updated: ${new Date(data.lastUpdated).toLocaleString()}
+        </div>
+      `;
+
+      content.innerHTML = html;
+    }
+
+    async function loadFeeds() {
+      try {
+        const response = await fetch('data/feeds.json');
+        if (!response.ok) throw new Error('Failed to fetch feeds');
+        const data = await response.json();
+        window.feedsData = data;
+        renderFeeds(data);
+      } catch (error) {
+        console.error('Error loading feeds:', error);
+        document.getElementById('content').innerHTML = `
+          <div class="error-message">
+            <strong>Unable to load feeds</strong><br>
+            The feed data hasn't been generated yet. Run the GitHub Action to fetch feeds.
+          </div>
+        `;
+      }
+    }
+
+    // Filter buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        if (window.feedsData) {
+          renderFeeds(window.feedsData, btn.dataset.team);
+        }
+      });
+    });
+
+    // Load feeds on page load
+    loadFeeds();
+  </script>
+</body>
+</html>
