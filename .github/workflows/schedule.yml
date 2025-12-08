@@ -17,4 +17,4 @@ jobs:
           storageType: files
           opmlFile: feeds.opml     # our file name
           branch: contents         # output branch for the static site
-          # customDomain: sports.yourdomain.com  # optional if you have a custom domain
+          customDomain: brucewillke.com  # optional if you have a custom domain
