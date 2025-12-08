@@ -1,24 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <opml version="2.0">
   <head>
-    <title>Sports Feeds</title>
+    <title>NY Sports Feeds</title>
   </head>
   <body>
-    <outline text="ESPN Sports" type="rss" 
-      xmlUrl="http://sports.espn.go.com/espn/rss/news" 
-      htmlUrl="https://www.espn.com" 
-      category="Sports" />
-    <outline text="Yahoo Sports" type="rss" 
-      xmlUrl="https://sports.yahoo.com/top/rss.xml" 
-      htmlUrl="https://sports.yahoo.com" 
-      category="Sports" />
-    <outline text="LA Times Sports" type="rss" 
-      xmlUrl="http://www.latimes.com/sports/rss2.0.xml" 
-      htmlUrl="https://www.latimes.com/sports" 
-      category="Sports" />
-    <outline text="The Guardian US Sport" type="rss" 
-      xmlUrl="http://www.theguardian.com/sport/us-sport/rss" 
-      htmlUrl="https://www.theguardian.com/sport/us-sport" 
-      category="Sports" />
+    <!-- NY Yankees -->
+    <outline text="Pinstripe Alley" type="rss" 
+      xmlUrl="https://www.pinstripealley.com/rss/current.xml" 
+      htmlUrl="https://www.pinstripealley.com" 
+      category="Yankees" />
+    <outline text="SNY Yankees" type="rss" 
+      xmlUrl="https://sny.tv/yankees-feed" 
+      htmlUrl="https://sny.tv/teams/yankees" 
+      category="Yankees" />
+
+    <!-- NY Giants -->
+    <outline text="Big Blue View" type="rss" 
+      xmlUrl="https://www.bigblueview.com/rss/current.xml" 
+      htmlUrl="https://www.bigblueview.com" 
+      category="Giants" />
+    <outline text="SNY Giants" type="rss" 
+      xmlUrl="https://sny.tv/giants-feed" 
+      htmlUrl="https://sny.tv/teams/giants" 
+      category="Giants" />
+    <outline text="Big Blue Interactive" type="rss" 
+      xmlUrl="https://bigblueinteractive.com/feed" 
+      htmlUrl="https://bigblueinteractive.com" 
+      category="Giants" />
+
+    <!-- NY Knicks -->
+    <outline text="Posting and Toasting" type="rss" 
+      xmlUrl="https://www.postingandtoasting.com/rss/current.xml" 
+      htmlUrl="https://www.postingandtoasting.com" 
+      category="Knicks" />
+    <outline text="SNY Knicks" type="rss" 
+      xmlUrl="https://sny.tv/knicks-feed" 
+      htmlUrl="https://sny.tv/teams/knicks" 
+      category="Knicks" />
+
+    <!-- NY Rangers -->
+    <outline text="Blueshirt Banter" type="rss" 
+      xmlUrl="https://www.blueshirtbanter.com/rss/current.xml" 
+      htmlUrl="https://www.blueshirtbanter.com" 
+      category="Rangers" />
+    <outline text="SNY Rangers" type="rss" 
+      xmlUrl="https://sny.tv/rangers-feed" 
+      htmlUrl="https://sny.tv/teams/rangers" 
+      category="Rangers" />
+    <outline text="Forever Blueshirts" type="rss" 
+      xmlUrl="https://foreverblueshirts.com/feed" 
+      htmlUrl="https://foreverblueshirts.com" 
+      category="Rangers" />
   </body>
 </opml>
