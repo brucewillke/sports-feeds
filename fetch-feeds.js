@@ -30,16 +30,15 @@ const feeds = {
   UFC: [
     { name: 'MMA Fighting', url: 'https://www.mmafighting.com/rss/current.xml' },
     { name: 'MMA Mania', url: 'https://www.mmamania.com/rss/current.xml' },
-    { name: 'UFC News', url: 'https://www.ufc.com/rss/news' }
+    { name: 'Sherdog', url: 'https://www.sherdog.com/rss/news.xml' }
   ],
   'World News': [
     { name: 'BBC World', url: 'https://feeds.bbci.co.uk/news/world/rss.xml' },
-    { name: 'Reuters World', url: 'https://www.reutersagency.com/feed/?taxonomy=best-regions&post_type=best' },
-    { name: 'AP News', url: 'https://apnews.com/world-news.rss' }
+    { name: 'NPR News', url: 'https://feeds.npr.org/1001/rss.xml' },
+    { name: 'Al Jazeera', url: 'https://www.aljazeera.com/xml/rss/all.xml' }
   ],
   Cigars: [
     { name: 'Halfwheel', url: 'https://halfwheel.com/feed' },
-    { name: 'Famous Smoke Blog', url: 'https://www.famous-smoke.com/cigaradvisor/feed' },
     { name: 'Blind Man Puff', url: 'https://blindmanspuff.com/feed/' }
   ],
   Tech: [
@@ -50,8 +49,7 @@ const feeds = {
   Music: [
     { name: 'Rolling Stone', url: 'https://www.rollingstone.com/music/feed/' },
     { name: 'Pitchfork', url: 'https://pitchfork.com/feed/feed-news/rss' },
-    { name: 'MetalSucks', url: 'https://www.metalsucks.net/feed/' },
-    { name: 'Lambgoat', url: 'https://lambgoat.com/feed/' }
+    { name: 'MetalSucks', url: 'https://www.metalsucks.net/feed/' }
   ]
 };
 
