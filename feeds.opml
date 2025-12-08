@@ -4,27 +4,21 @@
     <title>Sports Feeds</title>
   </head>
   <body>
-    <outline text="Sports">
-      <outline
-        text="ESPN Sports"
-        type="rss"
-        xmlUrl="http://sports.espn.go.com/espn/rss/news"
-        htmlUrl="https://www.espn.com" />
-      <outline
-        text="Yahoo Sports"
-        type="rss"
-        xmlUrl="https://sports.yahoo.com/top/rss.xml"
-        htmlUrl="https://sports.yahoo.com" />
-      <outline
-        text="LA Times Sports"
-        type="rss"
-        xmlUrl="http://www.latimes.com/sports/rss2.0.xml"
-        htmlUrl="https://www.latimes.com/sports" />
-      <outline
-        text="The Guardian US Sport"
-        type="rss"
-        xmlUrl="http://www.theguardian.com/sport/us-sport/rss"
-        htmlUrl="https://www.theguardian.com/sport/us-sport" />
-    </outline>
+    <outline text="ESPN Sports" type="rss" 
+      xmlUrl="http://sports.espn.go.com/espn/rss/news" 
+      htmlUrl="https://www.espn.com" 
+      category="Sports" />
+    <outline text="Yahoo Sports" type="rss" 
+      xmlUrl="https://sports.yahoo.com/top/rss.xml" 
+      htmlUrl="https://sports.yahoo.com" 
+      category="Sports" />
+    <outline text="LA Times Sports" type="rss" 
+      xmlUrl="http://www.latimes.com/sports/rss2.0.xml" 
+      htmlUrl="https://www.latimes.com/sports" 
+      category="Sports" />
+    <outline text="The Guardian US Sport" type="rss" 
+      xmlUrl="http://www.theguardian.com/sport/us-sport/rss" 
+      htmlUrl="https://www.theguardian.com/sport/us-sport" 
+      category="Sports" />
   </body>
 </opml>
