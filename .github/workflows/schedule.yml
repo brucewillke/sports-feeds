@@ -5,6 +5,9 @@ on:
     - cron: '0 * * * *'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   feeds:
     runs-on: ubuntu-latest
@@ -12,3 +15,5 @@ jobs:
     steps:
       - name: Run Action
         uses: llun/feeds@3.0.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
