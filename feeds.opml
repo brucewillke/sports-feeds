@@ -4,27 +4,22 @@
     <title>Sports Feeds</title>
   </head>
   <body>
-    <!-- One category named "Sports" -->
     <outline text="Sports">
-      <!-- ESPN - general sports -->
       <outline
         text="ESPN Sports"
         type="rss"
         xmlUrl="http://sports.espn.go.com/espn/rss/news"
         htmlUrl="https://www.espn.com" />
-      <!-- Yahoo Sports Top Stories -->
       <outline
         text="Yahoo Sports"
         type="rss"
         xmlUrl="https://sports.yahoo.com/top/rss.xml"
         htmlUrl="https://sports.yahoo.com" />
-      <!-- LA Times Sports -->
       <outline
         text="LA Times Sports"
         type="rss"
         xmlUrl="http://www.latimes.com/sports/rss2.0.xml"
         htmlUrl="https://www.latimes.com/sports" />
-      <!-- The Guardian US Sport -->
       <outline
         text="The Guardian US Sport"
         type="rss"
