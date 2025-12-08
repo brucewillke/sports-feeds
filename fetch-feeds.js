@@ -29,12 +29,13 @@ const feeds = {
   ]
 };
 
-function withTimeout(promise, ms, feedName) {
+function withTimeout(promise, ms) {
+  let timer;
   return Promise.race([
-    promise,
-    new Promise((_, reject) =>
-      setTimeout(() => reject(new Error(`Timeout after ${ms}ms`)), ms)
-    )
+    promise.finally(() => clearTimeout(timer)),
+    new Promise((_, reject) => {
+      timer = setTimeout(() => reject(new Error(`Timeout after ${ms}ms`)), ms);
+    })
   ]);
 }
 
@@ -44,8 +45,7 @@ async function fetchFeed(feedInfo) {
     console.log(`Fetching: ${feedInfo.name}...`);
     const feed = await withTimeout(
       parser.parseURL(feedInfo.url),
-      FETCH_TIMEOUT,
-      feedInfo.name
+      FETCH_TIMEOUT
     );
     console.log(`✓ ${feedInfo.name} (${Date.now() - start}ms)`);
 
