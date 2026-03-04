@@ -133,6 +133,18 @@ async function main() {
     JSON.stringify(allData, null, 2)
   );
 
+  // Summary
+  const succeeded = results.filter(r => !r.error);
+  const failed = results.filter(r => r.error);
+
+  console.log('\n--- Summary ---');
+  console.log(`Succeeded: ${succeeded.length}/${results.length}`);
+
+  if (failed.length > 0) {
+    console.log(`Failed: ${failed.length}`);
+    failed.forEach(f => console.log(`  - ${f.name}: ${f.error}`));
+  }
+
   console.log('\nFeeds saved to data/feeds.json');
 }
 
