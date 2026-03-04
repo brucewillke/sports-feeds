@@ -1,0 +1,22 @@
+{
+  "name": "NY Sports Feeds",
+  "short_name": "Sports Feeds",
+  "description": "Sports, news, and more — all your feeds in one place",
+  "start_url": "/sports-feeds/",
+  "scope": "/sports-feeds/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
