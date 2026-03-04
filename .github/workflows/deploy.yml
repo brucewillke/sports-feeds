@@ -34,6 +34,7 @@ jobs:
 
       - name: Fetch feeds
         run: node fetch-feeds.js
+        timeout-minutes: 2
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

@@ -3,13 +3,13 @@ const fs = require('fs');
 const path = require('path');
 
 const parser = new Parser({
-  timeout: 8000,
+  timeout: 5000,
   headers: {
     'User-Agent': 'Mozilla/5.0 (compatible; Sports-Feeds-Bot/1.0)'
   }
 });
 
-const FETCH_TIMEOUT = 10000; // 10 second hard timeout per feed
+const FETCH_TIMEOUT = 6000; // 6 second hard timeout per feed
 
 const feeds = {
   Yankees: [
