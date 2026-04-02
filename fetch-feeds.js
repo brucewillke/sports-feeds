@@ -52,7 +52,8 @@ const feeds = {
     { name: 'MetalSucks', url: 'https://www.metalsucks.net/feed/' }
   ],
   'Local News': [
-    { name: 'My Eastern Shore MD', url: 'https://www.myeasternshoremd.com/search/?f=rss&t=article&c=news&l=50&s=start_time&sd=desc' }
+    { name: 'My Eastern Shore MD', url: 'https://www.myeasternshoremd.com/search/?f=rss&t=article&c=news&l=50&s=start_time&sd=desc' },
+    { name: 'Star Democrat', url: 'https://www.stardem.com/search/?f=rss&t=article&c=news&l=50&s=start_time&sd=desc' }
   ]
 };
 
