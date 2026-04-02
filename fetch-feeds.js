@@ -50,6 +50,9 @@ const feeds = {
     { name: 'Rolling Stone', url: 'https://www.rollingstone.com/music/feed/' },
     { name: 'Pitchfork', url: 'https://pitchfork.com/feed/feed-news/rss' },
     { name: 'MetalSucks', url: 'https://www.metalsucks.net/feed/' }
+  ],
+  'Local News': [
+    { name: 'My Eastern Shore MD', url: 'https://www.myeasternshoremd.com/search/?f=rss&t=article&c=news&l=50&s=start_time&sd=desc' }
   ]
 };
 

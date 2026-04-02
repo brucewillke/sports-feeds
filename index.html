@@ -24,6 +24,7 @@
       --cigars: #8b4513;
       --tech: #00d4aa;
       --music: #9b59b6;
+      --local-news: #e67e22;
       --bg: #0a0a0a;
       --surface: #141414;
       --surface-hover: #1a1a1a;
@@ -118,6 +119,7 @@
     .filter-btn[data-team="Cigars"].active { background: var(--cigars); border-color: var(--cigars); }
     .filter-btn[data-team="Tech"].active { background: var(--tech); border-color: var(--tech); color: var(--bg); }
     .filter-btn[data-team="Music"].active { background: var(--music); border-color: var(--music); }
+    .filter-btn[data-team="Local News"].active { background: var(--local-news); border-color: var(--local-news); }
 
     main {
       max-width: 1400px;
@@ -175,6 +177,7 @@
     .category[data-team="Cigars"] .category-header { border-color: var(--cigars); }
     .category[data-team="Tech"] .category-header { border-color: var(--tech); }
     .category[data-team="Music"] .category-header { border-color: var(--music); }
+    .category[data-team="Local News"] .category-header { border-color: var(--local-news); }
 
     .team-icon {
       font-size: 1.5rem;
@@ -312,6 +315,7 @@
         <button class="filter-btn" data-team="Cigars">Cigars</button>
         <button class="filter-btn" data-team="Tech">Tech</button>
         <button class="filter-btn" data-team="Music">Music</button>
+        <button class="filter-btn" data-team="Local News">Local</button>
       </div>
     </div>
   </header>
